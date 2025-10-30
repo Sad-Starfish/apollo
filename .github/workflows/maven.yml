@@ -31,4 +31,6 @@ jobs:
       run: mvn clean install -DskipTests -pl apollo-api-impl -am
     - name: Run flaky Test
       run: mvn -pl apollo-api-impl test -Dtest=com.spotify.apollo.route.MiddlewaresTest#asShouldSerializeResponseObjectAsJson
+    - name: Rerun with Nondex
+      run: mvn -pl apollo-api-impl edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=com.spotify.apollo.route.MiddlewaresTest#asShouldSerializeResponseObjectAsJson
       
